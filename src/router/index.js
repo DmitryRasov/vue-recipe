@@ -1,27 +1,25 @@
-import { createRouter, createWebHashHistory } from 'vue-router'
-import HomeView from '../views/HomeView.vue'
+import {createRouter, createWebHashHistory, createWebHistory} from 'vue-router'
+import Home from "@/views/Home.vue";
+import AllRecipes from "@/views/AllRecipes.vue";
+import FavoriteRecipes from "@/views/FavoriteRecipes.vue";
+import RecipeForm from "@/components/RecipesForm/RecipeForm.vue";
+import RecipeCard from "@/components/RecipesBlock/RecipeCard.vue";
 
 const routes = [
-  {
-    path: '/',
-    name: 'home',
-    component: HomeView
-  },
-  {
-    path: '/about',
-    name: 'about',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: function () {
-      return import(/* webpackChunkName: "about" */ '../views/AboutView.vue')
-    }
-  }
+  { path: '/home',  component: Home, meta: {title: 'Главная'} },
+  { path: '/allrecipes', component: AllRecipes, meta: {title: 'Все рецепты'} },
+  { path: '/favoriterecipes', component: FavoriteRecipes, meta: {title: 'Избранное'} },
+  { path: '/newrecipe', component: RecipeForm, meta: {title: 'Добавить рецепт'} },
+  { path: '/recipe/:id', component: RecipeCard}
 ]
 
 const router = createRouter({
   history: createWebHashHistory(),
   routes
 })
+router.beforeEach((to, from, next) => {
+  document.title = to.meta.title || 'Книга рецептов';
+  next();
+});
 
 export default router
