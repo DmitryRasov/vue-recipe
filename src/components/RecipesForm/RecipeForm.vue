@@ -2,18 +2,21 @@
   <form @submit.prevent>
     <div>
       <input v-model="recipe.recipeName" type="text" placeholder="Recipe Name">
-      <button @click="addNewRecipe(recipe)">add recipe</button>
+      <new-button :title="'Сохранить'" @click="addNewRecipe(recipe)"></new-button>
     </div>
     <div v-for="(ingredient, i) in recipe.ingredients" :key="recipe.recipeId">
       <input type="text" v-model="recipe.ingredients[i]" placeholder="ingredient">
-      <button v-if="i === recipe.ingredients.length - 1" @click="addIngredientInput">+</button>
+      <new-button :title="'+'" v-if="i === recipe.ingredients.length - 1" @click="addIngredientInput"></new-button>
     </div>
   </form>
 </template>
 
 <script>
+import NewButton from "@/UI/NewButton.vue";
+
 export default {
   name: "RecipeForm",
+  components: {NewButton},
   data() {
     return {
       recipe: {
@@ -25,7 +28,9 @@ export default {
   },
   methods: {
     addIngredientInput() {
-      this.recipe.ingredients.push("");
+      if (this.recipe.ingredients.every(ingredient => ingredient.trim() !== "")) {
+        this.recipe.ingredients.push("");
+      }
     },
     addNewRecipe(recipe) {
       this.recipe.ingredients = this.recipe.ingredients.filter(ingredient => ingredient.trim() !== "")
@@ -38,6 +43,8 @@ export default {
       };
       if (this.recipe.recipeName && this.recipe.ingredients.length > 0) {
         this.$store.commit("addRecipe", newRecipe);
+      } else {
+        alert('dfgsdfgsdfg')
       }
     },
   },

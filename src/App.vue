@@ -4,7 +4,7 @@
 </template>
 
 <script>
-import navigationHeader from "@/components/UI/NavigationHeader.vue";
+import navigationHeader from "@/UI/NavigationHeader.vue";
 export default {
   name: 'App',
   components: {navigationHeader},
@@ -25,17 +25,5 @@ export default {
 </script>
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Roboto:ital,wght@0,400;0,500;0,700;1,500&display=swap');
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    list-style-type: none;
-  }
-
-  body {
-    font-family: 'Poppins', sans-serif;
-    font-family: 'Roboto', sans-serif;
-  }
 
 </style>

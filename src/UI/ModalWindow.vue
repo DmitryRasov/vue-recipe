@@ -2,14 +2,17 @@
   <div @click="triggerModal" class="modal__background">
     <div @click.stop class="modal-block">
       <slot></slot>
-      <button @click="triggerModal" class="modal__button">close</button>
+      <new-button :title="'Закрыть'" @click="triggerModal" class="modal__button"></new-button>
     </div>
   </div>
 </template>
 
 <script>
+import NewButton from "@/UI/NewButton.vue";
+
 export default {
   name: "ModalWindow",
+  components: {NewButton},
   data() {
     return {
 

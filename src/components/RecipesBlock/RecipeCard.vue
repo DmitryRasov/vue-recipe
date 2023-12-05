@@ -12,14 +12,17 @@
         </li>
       </ul>
     </div>
-    <button @click="favoriteTrigger(recipeById.isFavorite)">{{ favoriteButton }}</button>
+    <new-button :title="favoriteButton" @click="favoriteTrigger(recipeById.isFavorite)"></new-button>
   </div>
 </template>
 
 
 <script>
+import NewButton from "@/UI/NewButton.vue";
+
 export default {
   name: "recipeCard",
+  components: {NewButton},
   methods: {
     favoriteTrigger(state) {
       this.recipeById.isFavorite = !state
@@ -36,7 +39,7 @@ export default {
       return this.$store.getters.getRecipeById(Number(this.$route.params.id))
     },
     favoriteButton() {
-      return this.recipeById.isFavorite ? 'Remove from favorite' : 'Add to favorite'
+      return this.recipeById.isFavorite ? 'Убрать из избранного' : 'В избранное'
     }
   },
   mounted() {

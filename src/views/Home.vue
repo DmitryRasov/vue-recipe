@@ -1,6 +1,6 @@
 <template>
   <h1>home page</h1>
-  <button @click="triggerModal">add recipe</button>
+  <new-button :title="'Добавить рецепт'" @click="triggerModal"></new-button>
   <modal-window
       v-if="isModal"
       @modalHandler="triggerModal"
@@ -10,13 +10,14 @@
 </template>
 
 <script>
-import NavigationHeader from '@/components/UI/NavigationHeader.vue'
-import ModalWindow from "@/components/UI/ModalWindow.vue";
+import NavigationHeader from '@/UI/NavigationHeader.vue'
+import ModalWindow from "@/UI/ModalWindow.vue";
 import RecipeForm from "@/components/RecipesForm/RecipeForm.vue";
+import NewButton from "@/UI/NewButton.vue";
 
 export default {
   name: "Home",
-  components: {RecipeForm, ModalWindow, NavigationHeader},
+  components: {NewButton, RecipeForm, ModalWindow, NavigationHeader},
   data() {
     return {
       isModal: false,
