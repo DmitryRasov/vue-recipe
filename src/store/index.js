@@ -49,7 +49,8 @@ export default createStore({
       return state.recipes.filter(recipe => recipe.isFavorite === true);
     },
     getRecipeById: state => (id) => {
-      return state.recipes.find(recipe => recipe.recipeId === id);
+      const recipe = state.recipes.find(recipe => recipe.recipeId === id)
+      return recipe ? recipe : state.recipes[0]
     }
   },
   mutations: {

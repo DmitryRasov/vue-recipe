@@ -19,7 +19,7 @@ export default {
 
 <style scoped>
   button {
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Comfortaa', sans-serif;
     padding: 7px 17px;
     border: none;
     border-radius: 15px;

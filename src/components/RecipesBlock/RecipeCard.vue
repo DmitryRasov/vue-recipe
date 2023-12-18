@@ -1,7 +1,7 @@
 <template>
   <div class="recipe-card">
     <div class="recipe-header">
-      <a @click="routeGoBack">{{ '<- back' }}</a>
+      <new-button :title="'<-- back'" @click="routeGoBack"></new-button>
       <h3>{{ recipeById.recipeName }}</h3>
     </div>
     <div class="recipe-ingredients_block">

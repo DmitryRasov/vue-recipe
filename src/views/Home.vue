@@ -1,5 +1,5 @@
 <template>
-  <h1>home page</h1>
+  <h2>Главная страница</h2>
   <new-button :title="'Добавить рецепт'" @click="triggerModal"></new-button>
   <modal-window
       v-if="isModal"

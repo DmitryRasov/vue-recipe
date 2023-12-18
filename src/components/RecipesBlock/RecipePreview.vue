@@ -1,7 +1,6 @@
 <template>
   <div class="recipe-preview">
-    <h5>{{ recipe.recipeName }}</h5>
-    <router-link :to="'/recipe/' + recipe.recipeId" :recipe="recipe">View recipe</router-link>
+    <router-link class="recipe-preview__link" :to="'/recipe/' + recipe.recipeId" :recipe="recipe">{{ recipe.recipeName }}</router-link>
   </div>
 </template>
 
@@ -19,6 +18,9 @@ export default {
 
 <style scoped>
   .recipe-preview {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 200px;
     height: 80px;
     border: 1px solid black;

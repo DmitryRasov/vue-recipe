@@ -1,11 +1,11 @@
 <template>
   <form @submit.prevent>
     <div>
-      <input v-model="recipe.recipeName" type="text" placeholder="Recipe Name">
+      <input v-model="recipe.recipeName" type="text" placeholder="Название рецепта">
       <new-button :title="'Сохранить'" @click="addNewRecipe(recipe)"></new-button>
     </div>
     <div v-for="(ingredient, i) in recipe.ingredients" :key="recipe.recipeId">
-      <input type="text" v-model="recipe.ingredients[i]" placeholder="ingredient">
+      <input type="text" v-model="recipe.ingredients[i]" placeholder="Ингредиент">
       <new-button :title="'+'" v-if="i === recipe.ingredients.length - 1" @click="addIngredientInput"></new-button>
     </div>
   </form>

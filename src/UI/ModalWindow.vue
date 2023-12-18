@@ -41,6 +41,8 @@ export default {
  }
  .modal-block {
    position: relative;
+   display: flex;
+   flex-direction: column;
    min-height: 350px;
    width: 300px;
    max-width: 300px;

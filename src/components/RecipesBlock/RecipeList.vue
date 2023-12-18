@@ -1,7 +1,7 @@
 <template>
   <div class="recipe-wrapper">
-    <div v-for="recipe in storeState.recipes" :key='recipe.recipeId'>
-    <recipe-preview :recipe="recipe"></recipe-preview>
+    <div v-for="recipe in recipes" :key='recipe.recipeId'>
+      <recipe-preview :recipe="recipe"></recipe-preview>
     </div>
   </div>
 
@@ -14,6 +14,12 @@ import RecipePreview from "@/components/RecipesBlock/RecipePreview.vue";
 export default {
   name: "RecipeList",
   components: {RecipePreview, recipeCard },
+  props: {
+    recipes: {
+      type: Object,
+      required: true
+    }
+  },
   computed: {
     storeState() {
       return this.$store.state

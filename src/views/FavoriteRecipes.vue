@@ -1,19 +1,14 @@
 <template>
-  <h2 v-if="favoriteRecipes.length < 1">No favorite :(</h2>
-  <div class="recipe-wrapper">
-    <div v-for="recipe in favoriteRecipes" :key='recipe.recipeId'>
-      <recipe-preview :recipe="recipe" />
-    </div>
-  </div>
+  <h2 v-if="favoriteRecipes.length < 1">Нет избранных :(</h2>
+  <h2 v-else>Избранные рецепты:</h2>
+  <recipe-list :recipes="favoriteRecipes"/>
 </template>
 
 <script>
-import RecipeCard from "@/components/RecipesBlock/RecipeCard.vue";
-import RecipePreview from "@/components/RecipesBlock/RecipePreview.vue";
-
+import RecipeList from "@/components/RecipesBlock/RecipeList.vue";
 export default {
   name: "FavoriteRecipes",
-  components: {RecipePreview, RecipeCard},
+  components: {RecipeList},
   computed: {
     favoriteRecipes() {
       return this.$store.getters['favoriteRecipes']
@@ -23,9 +18,5 @@ export default {
 </script>
 
 <style scoped>
-  .recipe-wrapper {
-    display: flex;
-    flex-direction: row;
-    gap: 15px;
-  }
+
 </style>
