@@ -3,7 +3,7 @@
     <router-link class="router-header__link" to="/home">Главная</router-link>
     <router-link class="router-header__link" to="/favoriterecipes">Избранное</router-link>
     <router-link class="router-header__link" to="/allrecipes">Все рецепты</router-link>
-
+    <router-link class="router-header__link" to="/findrecipes">Найти рецепты</router-link>
     <h1>Recipe App</h1>
   </header>
 </template>

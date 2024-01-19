@@ -33,5 +33,6 @@ export default {
     display: flex;
     flex-direction: row;
     gap: 15px;
+    padding: 0 15px;
   }
 </style>

@@ -1,7 +1,7 @@
 <template>
   <div class="recipe-card">
     <div class="recipe-header">
-      <new-button :title="'<-- back'" @click="routeGoBack"></new-button>
+      <new-button class="recipe-header__btn" :title="'Назад'" @click="routeGoBack"></new-button>
       <h3>{{ recipeById.recipeName }}</h3>
     </div>
     <div class="recipe-ingredients_block">
@@ -12,7 +12,7 @@
         </li>
       </ul>
     </div>
-    <new-button :title="favoriteButton" @click="favoriteTrigger(recipeById.isFavorite)"></new-button>
+    <new-button class="recipe-card__btn-fav" :title="favoriteButton" @click="favoriteTrigger(recipeById.isFavorite)"></new-button>
   </div>
 </template>
 
@@ -50,10 +50,12 @@ export default {
 
 <style scoped>
   .recipe-card {
+    position: relative;
     border: 1px solid black;
     border-radius: 5px;
-    width: 350px;
+    width: 50%;
     min-height: 400px;
+    margin-left: 15px;
   }
   .recipe-header {
     display: flex;
@@ -62,6 +64,12 @@ export default {
     margin-left: 5%;
     margin-top: 5%;
   }
+  .recipe-header__btn {
+    position: absolute;
+    bottom: 1px;
+    left: 1px;
+  }
+
   .recipe-ingredients_block {
     margin-left: 5%;
     margin-right: 5%;
@@ -75,5 +83,10 @@ export default {
     display: flex;
     flex-direction: column;
     gap: 5px;
+  }
+  .recipe-card__btn-fav {
+    position: absolute;
+    bottom: 1px;
+    right: 1px;
   }
 </style>

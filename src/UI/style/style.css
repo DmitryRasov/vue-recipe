@@ -10,6 +10,10 @@ body {
     background: #FFE0B2;
     font-family: 'Comfortaa', sans-serif;
 }
+
+body::-webkit-scrollbar {
+    display: none;
+}
 h2 {
     padding: 0 15px;
 }
@@ -22,7 +26,7 @@ a {
     display: flex;
     justify-content: center;
     align-items: center;
-    border-bottom: 2px solid black;
+    border-bottom: 1px solid black;
     transition: .5s;
 }
 .router-header__link {
